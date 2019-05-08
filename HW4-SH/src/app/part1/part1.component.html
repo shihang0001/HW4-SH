@@ -1,0 +1,42 @@
+<div class="container">
+  <table border="1" class="table table-striped">
+    <caption>My Books</caption>
+    <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Qty</th>
+      <th scope="col">UnitPrice</th>
+      <th scope="col">$UnitPrice</th>
+      <th scope="col">Line Total</th>
+      <th scope="col">Total {{total}}</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let book of books; let i = index">
+    <tr>
+
+      <td scope="row"><input [(ngModel)]="book.title"></td>
+      <td scope="row"><input [(ngModel)]="book.qty" (keyup.enter)="getTotal()"
+                             (blur)="getTotal()"></td>
+      <td scope="row"><input [(ngModel)]="book.price" (keyup.enter)="getTotal()"
+                             (blur)="getTotal()"></td>
+      <td scope="row">{{book.price|currency}}</td>
+      <td scope="row">{{book.price * book.qty|currency}}</td>
+      <td scope="row">
+        <button (click)="removeBook(i)">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+    <tr class="function-button-row">
+      <td colspan="3" style="text-align:center;">
+        <button  class="btn-primary" (click)="addBook()">
+          New
+        </button>
+      </td>
+      <td colspan="3" style="text-align:center;">
+        <button (click)="saveBook()">
+          Save
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,12 @@
+<div>
+  part2 works!{{a}}
+
+  <div>
+    <label>Input:</label><input [(ngModel)]="input">
+    <br/>
+    <label>Delimiter:</label><input [(ngModel)]="signal">
+    <br/>
+    <p>{{input|tokenizer}}(Default)</p>
+    <p>{{input|tokenizer:signal}}(With Option)</p>
+  </div>
+</div>
